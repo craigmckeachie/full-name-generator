@@ -7,16 +7,16 @@ public class FullNameApplication {
         Scanner scanner = new Scanner(System.in);
 
         System.out.println("First Name: ");
-        String firstName = scanner.nextLine();
+        String firstName = scanner.nextLine().trim();
 
         System.out.println("Middle Name: ");
-        String middleName = scanner.nextLine();
+        String middleName = scanner.nextLine().trim();
 
         System.out.println("Last Name: ");
-        String lastName = scanner.nextLine();
+        String lastName = scanner.nextLine().trim();
 
         System.out.println("Suffix: ");
-        String suffix = scanner.nextLine();
+        String suffix = scanner.nextLine().trim();
 
         String fullName = firstName;
 
