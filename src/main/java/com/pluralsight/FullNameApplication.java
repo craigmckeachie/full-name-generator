@@ -3,21 +3,32 @@ package com.pluralsight;
 import java.util.Scanner;
 
 public class FullNameApplication {
+    static Scanner scanner = new Scanner(System.in);
+
     public static void main(String[] args) {
-        Scanner scanner = new Scanner(System.in);
+        promptForAndParseFullName();
+    }
 
-        System.out.println("First Name: ");
-        String firstName = scanner.nextLine().trim();
+    private static void promptForAndParseFullName() {
 
-        System.out.println("Middle Name: ");
-        String middleName = scanner.nextLine().trim();
+        print("First Name: ");
+        String firstName = getString();
 
-        System.out.println("Last Name: ");
-        String lastName = scanner.nextLine().trim();
+        print("Middle Name: ");
+        String middleName = getString();
 
-        System.out.println("Suffix: ");
-        String suffix = scanner.nextLine().trim();
+        print("Last Name: ");
+        String lastName = getString();
 
+        print("Suffix: ");
+        String suffix = getString();
+
+        String fullName = buildFullName(firstName, middleName, lastName, suffix);
+
+        print(fullName);
+    }
+
+    private static String buildFullName(String firstName, String middleName, String lastName, String suffix) {
         String fullName = firstName;
 
         if (!middleName.isEmpty()) {
@@ -29,9 +40,14 @@ public class FullNameApplication {
         if (!suffix.isEmpty()) {
             fullName = fullName + ", " + suffix;
         }
+        return fullName;
+    }
 
-        System.out.println(fullName);
+    private static String getString() {
+        return scanner.nextLine().trim();
+    }
 
-
+    private static void print(String x) {
+        System.out.println(x);
     }
 }
