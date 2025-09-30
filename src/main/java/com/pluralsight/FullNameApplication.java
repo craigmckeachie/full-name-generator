@@ -6,10 +6,10 @@ public class FullNameApplication {
     static Scanner scanner = new Scanner(System.in);
 
     public static void main(String[] args) {
-        promptForAndParseFullName();
+        promptForAndBuildFullName();
     }
 
-    private static void promptForAndParseFullName() {
+    private static void promptForAndBuildFullName() {
 
         print("First Name: ");
         String firstName = getString();
