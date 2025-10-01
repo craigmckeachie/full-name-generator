@@ -10,35 +10,41 @@ public class FullNameApplication {
     }
 
     private static void promptForAndBuildFullName() {
+        //type variable assign  of type
+        Person person   = new Person();
 
-        print("First Name: ");
-        String firstName = getString();
+        fillPerson(person);
 
-        print("Middle Name: ");
-        String middleName = getString();
-
-        print("Last Name: ");
-        String lastName = getString();
-
-        print("Suffix: ");
-        String suffix = getString();
-
-        String fullName = buildFullName(firstName, middleName, lastName, suffix);
+        String fullName = buildFullName(person);
 
         print(fullName);
     }
 
-    private static String buildFullName(String firstName, String middleName, String lastName, String suffix) {
-        String fullName = firstName;
+    private static void fillPerson(Person person) {
+        print("First Name: ");
+        person.setFirstName(getString());
 
-        if (!middleName.isEmpty()) {
-            fullName = fullName + " " + middleName;
+        print("Middle Name: ");
+        person.setMiddleName(getString());
+
+        print("Last Name: ");
+        person.setLastName(getString());
+
+        print("Suffix: ");
+        person.setSuffix(getString());
+    }
+
+    private static String buildFullName(Person person) {
+        String fullName = person.getFirstName();
+
+        if (!person.getMiddleName().isEmpty()) {
+            fullName = fullName + " " + person.getMiddleName();
         }
 
-        fullName = fullName + " " + lastName;
+        fullName = fullName + " " + person.getLastName();
 
-        if (!suffix.isEmpty()) {
-            fullName = fullName + ", " + suffix;
+        if (!person.getSuffix().isEmpty()) {
+            fullName = fullName + ", " + person.getSuffix();
         }
         return fullName;
     }
